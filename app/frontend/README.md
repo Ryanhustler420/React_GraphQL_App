@@ -20,3 +20,9 @@ localhost:7777
 ```
 
 > **Refer Docs Of Next.js**
+
+##### Vs code style plugin
+
+```
+vscode-styled-components
+```
