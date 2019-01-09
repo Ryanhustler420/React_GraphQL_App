@@ -160,7 +160,7 @@ var Meta = function Meta() {
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
-    ref: "shortcut icon",
+    rel: "shortcut icon",
     href: "/static/favicon.png",
     __source: {
       fileName: _jsxFileName,
@@ -168,7 +168,7 @@ var Meta = function Meta() {
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
-    ref: "stylesheet",
+    rel: "stylesheet",
     type: "text/css",
     href: "/static/nprogress.css",
     __source: {
