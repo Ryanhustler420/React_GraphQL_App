@@ -162,7 +162,11 @@ mutation {
 
 
 
+## Getting GraphQL Yoga Server Running
 
+> prisma-binding read more on github official repos
+
+> fire localhost: 4444
 
 
 
