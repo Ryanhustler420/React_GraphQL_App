@@ -26,3 +26,9 @@ localhost:7777
 ```
 vscode-styled-components
 ```
+
+> after all run 
+
+```
+npm run dev
+```
