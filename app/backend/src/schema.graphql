@@ -1,14 +1,14 @@
-type Dog {
-    name: String!
-}
-
+# import * from './generated/prisma.graphql'
+# this import above brings Item Type
 type Mutation {
-    createDog(name: String!) : Dog
+    createItem(title: String, description: String, price: Int, 
+    image: String, largeImage: String): Item!
 }
 
 type Query {
-    dogs: [Dog]!
+    items: [Item]!
 }
+# public facing API where we interface usally
 
 # # # # # # # # Note:-
     # Dog! means we can't return null for any item

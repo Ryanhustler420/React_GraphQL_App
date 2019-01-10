@@ -3,3 +3,20 @@ type User {
   name: String!
   email: String!
 }
+
+type Item {
+  id : ID! @unique
+  title : String!
+  description : String!
+  image : String
+  largeImage : String
+  price: Int!
+  createdAt: DateTime! # <- thses one's will created by prisma DB
+  updatedAt: DateTime! # <- thses one's will created by prisma DB
+  # user: User!
+}
+
+# check console with prisma console in command line
+
+# this graphql file is for prisma aka backend
+# anytime you make changes to datamodal.prisma . make sure you eploy to prisma server or else it won't work at all
