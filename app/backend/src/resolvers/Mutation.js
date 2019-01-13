@@ -13,21 +13,22 @@ const Mutations = {
 
     return item;
   },
+  updateItem (parent, args, ctx, info) {
+    // first take a copy of the updates
+    const updates = {...args};
+    // remove the ID from the updates
+    delete updates.id;
+    // run the update method
+    return ctx.db.mutation.updateItem (
+      {
+        data: updates,
+        where: {
+          id: args.id,
+        },
+      },
+      info
+    );
+  },
 };
 // info => query
 module.exports = Mutations;
-
-// Run this query on playground
-
-// mutation {
-//   createItem(
-//     title: "Second"
-//     description: "Testing Second Item"
-//     image: "dog1.jpg"
-//     largeImage: "doggg.jpg"
-//     price: 1000
-//   ) {
-//     id 
-//     title
-//   }
-// }
