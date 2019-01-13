@@ -183,11 +183,11 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(CreateItem)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
-      title: 'Cool Shoes',
-      description: 'I love those Context',
-      image: 'dog.jpeg',
-      largeImage: 'large-dog.jpg',
-      price: 1000
+      title: '',
+      description: '',
+      image: '',
+      largeImage: '',
+      price: 0
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleChange", function (e) {
@@ -347,11 +347,20 @@ function (_Component) {
             lineNumber: 89
           },
           __self: this
+        }), _this2.state.image && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
+          height: "200px",
+          src: _this2.state.image,
+          alt: "upload preview",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 97
+          },
+          __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "title",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 99
+            lineNumber: 101
           },
           __self: this
         }, "Title", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -364,14 +373,14 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 101
+            lineNumber: 103
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "price",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 112
+            lineNumber: 114
           },
           __self: this
         }, "Price", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -384,14 +393,14 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 114
+            lineNumber: 116
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
           htmlFor: "description",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 125
+            lineNumber: 127
           },
           __self: this
         }, "Description", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
@@ -403,14 +412,14 @@ function (_Component) {
           onChange: _this2.handleChange,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 127
+            lineNumber: 129
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
           type: "submit",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 136
+            lineNumber: 138
           },
           __self: this
         }, "Submit")));
