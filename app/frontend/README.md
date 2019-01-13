@@ -32,3 +32,5 @@ vscode-styled-components
 ```
 npm run dev
 ```
+
+> make cloudniary Account and make changes to Upload tab refer 'Upload Image'
