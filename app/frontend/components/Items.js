@@ -38,8 +38,12 @@ class Items extends Component {
         <Pagination page={this.props.page} />
         <Query
           query={ALL_ITEMS_QUERY}
+          // fetchPolicy="network-only" // fetch again for new data since after deleting an item it won't update so, 
+          // you can use this is an helper
+          // best would be to delete entire cache, but still if we do that then we will lose all data like, 
+          // cart and account information. so as of now there is no solution at all may be in future.
           variables={{
-            skip: this.props.page * perPage - perPage
+            skip: this.props.page * perPage - perPage,
           }}
         >
           {payload => {
