@@ -22,6 +22,7 @@ const Pagination = props => (
       if (loading) return <p>Loading...</p>;
       const count = data.itemsConnection.aggregate.count;
       const pages = Math.ceil (count / perPage);
+      debugger;
       const page = props.page;
       return (
         <PaginationStyles>
@@ -38,7 +39,7 @@ const Pagination = props => (
             <a className="prev" aria-disabled={page <= 1}> &larr; prev</a>
           </Link>
           <p>
-            Page {props.page} of {count}
+            Page {props.page} of {pages}
           </p>
           <p>{count} Items Total</p>
           <Link
