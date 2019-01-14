@@ -1,7 +1,20 @@
+enum Permission {
+  ADMIN
+  USER
+  ITEMCREATE
+  ITEMUPDATE
+  ITEMDELETE
+  PERMISSIONUPDATE
+}
+
 type User {
   id: ID! @unique
   name: String!
-  email: String!
+  email: String! @unique
+  password: String!
+  resetToken: String
+  resetTokenExpiry: Float
+  permission: [Permission]
 }
 
 type Item {
@@ -20,3 +33,11 @@ type Item {
 
 # this graphql file is for prisma aka backend
 # anytime you make changes to datamodal.prisma . make sure you eploy to prisma server or else it won't work at all
+
+# Errors:
+
+# User
+#   × You are creating a required field but there are already nodes present that would violate that constraint.
+
+# if you get this error anytime just open prisma console and jus clear existing data of that modal
+# or you can pass --force flag but, i won't recommand you to do that command
