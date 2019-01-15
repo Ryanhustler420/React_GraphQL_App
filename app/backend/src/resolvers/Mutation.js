@@ -72,7 +72,7 @@ const Mutations = {
     //  Finalllllly we return the user to the browser
     return user;
   },
-  async SVGLinearGradientElement (parent, {email, password}, ctx, info) {
+  async signin (parent, {email, password}, ctx, info) {
     // 1. check if there is a user with that email
     const user = await ctx.db.query.user ({where: {email: email}});
 

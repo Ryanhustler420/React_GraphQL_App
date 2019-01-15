@@ -48,7 +48,7 @@ class Items extends Component {
         >
           {payload => {
             const {data, error, loading} = payload;
-            if (loading) return <p>Loading</p>;
+            if (loading) return <p>Loading...</p>;
             if (error) return <p>Error: {error.message}</p>;
             return (
               <ItemsList>
