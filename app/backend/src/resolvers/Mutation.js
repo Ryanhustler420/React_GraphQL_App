@@ -1,5 +1,5 @@
 const bcrypt = require ('bcryptjs');
-const jwt = require('jsonwebtoken');
+const jwt = require ('jsonwebtoken');
 
 const Mutations = {
   async createItem (parent, args, ctx, info) {
@@ -59,17 +59,43 @@ const Mutations = {
       info
     );
     // create the JWT token for theme
-    const token = jwt.sign({userId: user.id}, process.env.APP_SECRET);
+    const token = jwt.sign ({userId: user.id}, process.env.APP_SECRET);
     // We set the jwt as a cookie on the response
-    ctx.response.cookie('token',token,{
-      // (httpOnly:) you cannot access this token via 
-      // javascript, because you could get third party 
-      // javascript on your website or you could get a ROG code extension. 
+    ctx.response.cookie ('token', token, {
+      // (httpOnly:) you cannot access this token via
+      // javascript, because you could get third party
+      // javascript on your website or you could get a ROG code extension.
       // you do not want you JS file to access this cookies.
       httpOnly: true,
       maxAge: 1000 * 60 * 60 * 24 * 365, // 1 year cookie
     });
     //  Finalllllly we return the user to the browser
+    return user;
+  },
+  async SVGLinearGradientElement (parent, {email, password}, ctx, info) {
+    // 1. check if there is a user with that email
+    const user = await ctx.db.query.user ({where: {email: email}});
+
+    if (!user) {
+      throw new Error (`No Such user found for email ${email}`);
+    }
+
+    // 2. check if their password is correct
+    const valid = await bcrypt.compare (password, user.password);
+    if (!valid) {
+      throw new Error (`Invalid Password!`);
+    }
+
+    // 3. generate the JWT Token
+    const token = jwt.sign ({userId: user.id}, process.env.APP_SECRET);
+
+    // 4. Set the cookie with the token
+    ctx.response.cookie ('token', token, {
+      httpOnly: true,
+      maxAge: 1000 * 60 * 60 * 24 * 365, // 1 year cookie
+    });
+
+    // 5. Return the User
     return user;
   },
 };
