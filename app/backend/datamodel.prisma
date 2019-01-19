@@ -23,10 +23,8 @@ type Item {
   description : String!
   image : String
   largeImage : String
-  price: Int!
-  createdAt: DateTime! # <- thses one's will created by prisma DB
-  updatedAt: DateTime! # <- thses one's will created by prisma DB
-  # user: User!
+  price: Int!  
+  user: User!
 }
 
 # check console with prisma console in command line
