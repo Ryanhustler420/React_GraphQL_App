@@ -854,12 +854,25 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n    mutation removeFromCart($id: ID!) {\n        removeFromCart(id: $id){\n            id\n        }\n    }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
 
 
 
 
+
+var REMOVE_FROM_CART_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_4___default()(_templateObject());
 var BigButton = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.button.withConfig({
   displayName: "RemoveFromCart__BigButton",
   componentId: "emvtd6-0"
@@ -881,14 +894,34 @@ function (_React$Component) {
   _createClass(RemoveFromCart, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(BigButton, {
-        title: "Delete Item",
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_1__["Mutation"], {
+        mutation: REMOVE_FROM_CART_MUTATION,
+        variables: {
+          id: this.props.id
+        },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 25
+          lineNumber: 34
         },
         __self: this
-      }, "\xD7");
+      }, function (removeFromCart, _ref) {
+        var loading = _ref.loading,
+            error = _ref.error;
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(BigButton, {
+          disabled: loading,
+          onClick: function onClick() {
+            removeFromCart().catch(function (err) {
+              return alert(error.message);
+            });
+          },
+          title: "Delete Item",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 39
+          },
+          __self: this
+        }, "\xD7");
+      });
     }
   }]);
 
