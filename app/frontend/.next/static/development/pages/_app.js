@@ -73,7 +73,9 @@ var Cart = function Cart(props) {
   }, function (_ref) {
     var me = _ref.data.me;
     if (!me) return null;
-    console.log(me);
+    {
+      /* console.log(me); */
+    }
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_5__["Mutation"], {
       mutation: TOGGLE_CART_MUTATION,
       __source: {
@@ -831,6 +833,13 @@ function (_React$Component) {
         variables: {
           id: this.props.id
         },
+        optimisticResponse: {
+          __typename: 'Mutation',
+          removeFromCart: {
+            __typename: 'CartItem',
+            id: this.props.id
+          }
+        },
         __source: {
           fileName: _jsxFileName,
           lineNumber: 46
@@ -849,7 +858,7 @@ function (_React$Component) {
           title: "Delete Item",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 52
+            lineNumber: 59
           },
           __self: this
         }, "\xD7");
