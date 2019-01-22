@@ -1102,7 +1102,7 @@ function (_React$Component) {
       loading: false
     });
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onChange",
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onChange", lodash_debounce__WEBPACK_IMPORTED_MODULE_6___default()(
     /*#__PURE__*/
     function () {
       var _ref = _asyncToGenerator(
@@ -1146,7 +1146,7 @@ function (_React$Component) {
       return function (_x, _x2) {
         return _ref.apply(this, arguments);
       };
-    }());
+    }(), 350));
 
     return _this;
   }
