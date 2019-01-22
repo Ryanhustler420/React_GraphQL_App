@@ -1177,6 +1177,7 @@ function (_React$Component) {
       }, function (client) {
         return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
           type: "search",
+          placeholder: "Search for ex. ' bag '",
           onChange: function onChange(e) {
             e.persist();
 
@@ -1191,16 +1192,28 @@ function (_React$Component) {
       }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DropDown__WEBPACK_IMPORTED_MODULE_7__["DropDown"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 55
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
-        __source: {
-          fileName: _jsxFileName,
           lineNumber: 56
         },
         __self: this
-      }, "Items will go here"))));
+      }, this.state.items.map(function (item) {
+        return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DropDown__WEBPACK_IMPORTED_MODULE_7__["DropDownItem"], {
+          key: item.id,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 58
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
+          width: "50",
+          alt: item.title,
+          src: item.image,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 59
+          },
+          __self: this
+        }), item.title);
+      }))));
     }
   }]);
 

@@ -45,6 +45,7 @@ class AutoComplete extends React.Component {
             {client => (
               <input
                 type="search"
+                placeholder="Search for ex. ' bag '"
                 onChange={e => {
                   e.persist ();
                   this.onChange (e, client);
@@ -53,7 +54,12 @@ class AutoComplete extends React.Component {
             )}
           </ApolloConsumer>
           <DropDown>
-            <p>Items will go here</p>
+            {this.state.items.map (item => (
+              <DropDownItem key={item.id}>
+                <img width="50" alt={item.title} src={item.image} />
+                {item.title}
+              </DropDownItem>
+            ))}
           </DropDown>
         </div>
       </SearchStyles>
