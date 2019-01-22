@@ -21,12 +21,20 @@ const SEARCH_ITEMS_QUERY = gql`
 `;
 
 class AutoComplete extends React.Component {
+  state = {
+    items: [],
+    loading: false,
+  };
+
   onChange = async (e, client) => {
+    // turn loading on before fetching data from server
+    this.setState ({loading: true});
     // Manually query apollo client
     const res = await client.query ({
       query: SEARCH_ITEMS_QUERY,
       variables: {searchTerm: e.target.value},
     });
+    this.setState ({items: res.data.items, loading: false});
   };
   render () {
     return (

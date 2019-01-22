@@ -1097,6 +1097,11 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(AutoComplete)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
+      items: [],
+      loading: false
+    });
+
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onChange",
     /*#__PURE__*/
     function () {
@@ -1108,7 +1113,13 @@ function (_React$Component) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
+                // turn loading on before fetching data from server
+                _this.setState({
+                  loading: true
+                }); // Manually query apollo client
+
+
+                _context.next = 3;
                 return client.query({
                   query: SEARCH_ITEMS_QUERY,
                   variables: {
@@ -1116,10 +1127,15 @@ function (_React$Component) {
                   }
                 });
 
-              case 2:
+              case 3:
                 res = _context.sent;
 
-              case 3:
+                _this.setState({
+                  items: res.data.items,
+                  loading: false
+                });
+
+              case 5:
               case "end":
                 return _context.stop();
             }
@@ -1143,19 +1159,19 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DropDown__WEBPACK_IMPORTED_MODULE_7__["SearchStyles"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 33
+          lineNumber: 41
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 34
+          lineNumber: 42
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_4__["ApolloConsumer"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 36
+          lineNumber: 44
         },
         __self: this
       }, function (client) {
@@ -1168,20 +1184,20 @@ function (_React$Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 38
+            lineNumber: 46
           },
           __self: this
         });
       }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_DropDown__WEBPACK_IMPORTED_MODULE_7__["DropDown"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 47
+          lineNumber: 55
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 48
+          lineNumber: 56
         },
         __self: this
       }, "Items will go here"))));
