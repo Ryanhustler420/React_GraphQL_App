@@ -18,6 +18,10 @@
     "/items": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
+    ],
+    "/order": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
     ]
   }
 }
