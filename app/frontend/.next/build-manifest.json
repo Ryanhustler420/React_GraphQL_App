@@ -11,11 +11,11 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/items": [
+    "/orders": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/order": [
+    "/item": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ]
