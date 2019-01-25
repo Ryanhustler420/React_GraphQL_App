@@ -42,7 +42,7 @@ class CreateItem extends Component {
   };
 
   uploadFile = async e => {
-    console.log ('uploading file...');
+    // console.log ('uploading file...');
     const files = e.target.files;
     const data = new FormData ();
     data.append ('file', files[0]);
@@ -57,7 +57,7 @@ class CreateItem extends Component {
     );
 
     const file = await res.json ();
-    console.log (file);
+    // console.log (file);
     this.setState ({
       image: file.secure_url,
       largeImage: file.eager[0].secure_url,
@@ -69,6 +69,7 @@ class CreateItem extends Component {
       <Mutation mutation={CREATE_ITEM_MUTATION} variables={this.state}>
         {(createItemFunction, {loading, error}) => (
           <Form
+            data-test="form"
             onSubmit={async e => {
               // stop the form from submitting
               e.preventDefault ();
@@ -94,8 +95,12 @@ class CreateItem extends Component {
                   required
                   onChange={this.uploadFile}
                 />
-                {this.state.image && <img height="200px" src={this.state.image} alt="upload preview"
-                />}
+                {this.state.image &&
+                  <img
+                    height="200px"
+                    src={this.state.image}
+                    alt="upload preview"
+                  />}
               </label>
 
               <label htmlFor="title">
